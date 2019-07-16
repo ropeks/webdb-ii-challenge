@@ -18,8 +18,18 @@ function addCar({ VIN, make, model, mileage }) {
     return db('cars').insert({ VIN, make, model, mileage });
 }
 
+function deleteCar(id) {
+    return db('cars').where({ id }).del();
+};
+
+function updateCar(id, { VIN, make, model, mileage }) {
+    return db('cars').where({ id }).update({ VIN, make, model, mileage });
+};
+
 module.exports = {
     configOptions,
     getCars,
-    addCar
+    addCar,
+    deleteCar,
+    updateCar
 };
