@@ -14,6 +14,10 @@ function getCars() {
     return db('cars');
 }
 
+function addCar({ VIN, make, model, mileage }) {
+    return db('cars').insert({ VIN, make, model, mileage });
+}
+
 module.exports = {
     configOptions,
     getCars,
